@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <section>
+    <header>dom事件类</header>
+    <ol>
+      <li>基本概念: dom事件级别(dom标准定义的级别)
+        <ol>
+          <li>dom0中事件标准: <code>ele.onclick=function(){}</code></li>
+          <li>dom1中没有设计关于事件相关的东西</li>
+          <li>dom2中: <code>ele.addEventListener('click', function(){},false)</code></li>
+          <li>dom3中: <code>ele.addEventListener('click', function(){},false)</code> 增加的事件类型</li>
+        </ol>
+      </li>
+      <li>dom事件模型
+        <ol>
+          <li>事件捕获: 自上而下捕获事件</li>
+          <li>事件冒泡: 自下而上触发事件</li>
+        </ol>
+      </li>
+      <li>dom事件流
+        <ol>
+          <li>捕获  -> 目标阶段 -> 冒泡(从目标元素上传到window对象)</li>
+        </ol>
+      </li>
+      <li>描述dom事件的具体流程
+        <ol>
+          <li>捕获流程: window -> document -> html -> body -> ... -> 目标元素</li>
+          <li>冒泡流程: 目标元素 -> ... -> body -> html document -> window</li>
+        </ol>
+        
+      </li>
+      <li>event对象的常见应用
+        <ol>
+          <li>e.preventDefault(): 清除浏览器默认事件</li>
+          <li>e.stopPropagation(): 阻止冒泡</li>
+          <li>e.stopImmediatePropagation(): 给同一元素注册两个事件后, 若只想触发第一个事件, 就在第一个事件里加上这个方法</li>
+          <li>e.currentTarget: 当前做绑定事件的元素</li>
+          <li>e.target: 当前被点击的元素</li>
+        </ol>
+      </li>
+      <li>自定义事件
+        <ol>
+          <li>使用new Event('事件')声明一个事件</li>
+          <li>
+            <section id="customeEvent"></section>
+            <pre> 
+              var eve = new Event('custome')
+              dom.addEventLister('custome', function() {
+                console.log('custome')
+              })
+              dom.dispatchEvent(eve)
+            </pre>
+          </li>
+          <li>CustomEvent对象, 和Event对象用法相同, 只是可以添加参数[Object]</li>
+        </ol>
+      </li>
+    </ol>
+    <aside>
+        <ol>
+           <li>如何用js获取html: <code>document.documentElement</code></li>
+        </ol>
+      </aside>
+  </section>
+  <section id="test">点我</section>
+  <ul id="target">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+</body>
+<script>
+  let cE = document.getElementById('customeEvent')
+  let target = document.getElementById('target')
+  let test = document.getElementById('test')
+  // 自定义事件
+  var eve = new Event('custome')
+  cE.addEventListener('custome', function(e) {
+    console.log('custome')
+  }, false)
+  cE.dispatchEvent(eve)
+  // e.target, e.currentTarget
+  target.onclick = function(e) {
+    console.log(e.target, e.currentTarget)
+  }
+  // stopImmediatePropagation()
+  test.addEventListener('click', function(e) {
+    e.stopImmediatePropagation()
+   console.log(1)
+  }, false)
+  test.addEventListener('click', function(e) {
+    console.log(2)
+  }, false)
+</script>
+</html>

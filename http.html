@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <section>
+    <header>http协议类</header>
+    <ol>
+      <li>http协议的主要特点
+        <ol>
+          <li>简单快速: 每个资源uri是固定的</li>
+          <li>灵活: 通过一个http协议可以传输不同的数据类型(header部分)</li>
+          <li>无连接: 连接一次就断掉</li>
+          <li>无状态: 客户端和服务端是两种身份, 服务端是无法两次连接的身份是否一样, 不会记录状态</li>
+        </ol>
+      </li>
+      <li>http报文组成部分
+        <ol>
+          <li>请求报文: 
+            <ol>
+              <li>请求行: method, http地址, http协议, http版本</li>
+              <li>请求头: key - value值, 告诉服务端我需要什么</li>
+              <li>空行: 告诉服务端往下是请求体</li>
+              <li>请求体: 数据不符</li>
+            </ol>
+          </li>
+          <li>响应报文: 
+              <ol>
+                <li>状态行</li>
+                <li>响应头</li>
+                <li>空行</li>
+                <li>响应体</li>
+              </ol>
+            </li>
+        </ol>
+      </li>
+      <li>http方法
+        <ol>
+          <li>GET - 获取资源</li>
+          <li>POST - 传输资源</li>
+          <li>PUT - 更新资源</li>
+          <li>DELETE - 删除资源</li>
+          <li>获得报文首部</li>
+        </ol>
+      </li>
+      <li>post和get区别
+        <ol>
+          <li>GET在浏览器回退是是无害的, POST会再次提交请求</li>
+          <li>GET产生的URL地址可以被收藏, 而POST不可以</li>
+          <li>GET请求会被浏览器主动缓存, POST不会, 除非手动设置</li>
+          <li>GET请求只能进行url编码, 而POST支持多种编码</li>
+          <li>GET请求的参数会被完整的保留在浏览器的历史记录里, POST中的参数不会被保留</li>
+          <li>GET请求在url中的参数是有长度限制的, POST没有</li>
+          <li>对于参数的数据类型, GET只接受ASCII字符, POST没有限制</li>
+          <li>GET比POST更不安全, 参数直接暴露在url上, 不能用来传递敏感信息</li>
+          <li>GET参数通过url传递, POST放在Request body中</li>
+        </ol>
+      </li>
+      <li>http状态码</li>
+      <li>什么是持久连接</li>
+      <li>什么是管线化</li>
+    </ol>
+  </section>
+</body>
+</html>

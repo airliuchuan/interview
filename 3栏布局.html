@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {padding: 0; margin: 0;box-sizing: border-box;}
+    /* 浮动 */
+    .box1, .box2, .box3 {
+      height: 100px;
+    }
+    .box1, .box3 {
+      width: 300px;
+      background:red;
+    }
+    .box1 {
+      float: left;
+    }
+    .box3 {
+      float: right;
+    }
+    .box2 {
+      width: auto;
+      background: yellow;
+      margin-left: 300px;
+    }
+    /* 弹性布局 */
+    .flex1, .flex3 {
+      width: 300px;
+      border: 1px solid red;
+      height: 100px;
+    }
+    .flex2 {
+      width: 100%;
+      height: 100px;
+      background: red;
+    }
+    .flex {
+      display: flex;
+    }
+    /* 定位 */
+    .posi {
+      width: 100%;
+      height: 100px;
+      position: relative;
+    }
+    .posi1, .posi3 {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      border: 1px solid green;
+    }
+    .posi2 {
+      width: auto;
+      margin:0 100px;
+      height: 100px;
+      background: red;
+    }
+    .posi1 {
+      left: 0;
+      top: 0;
+    }
+    .posi3 {
+      right: 0;
+      top: 0;
+    }
+    /* table-cell */
+    .t-cell {
+      display: table;
+      width: 100%;
+    }
+    .t-cell2 {
+      width: 100%;
+      background: green;
+      height: 100px;
+    }
+    .t-cell1, .t-cell3 {
+      display: table-cell;
+      width: 300px;
+      height: 100px;
+      border: 1px solid #000;
+    }
+    /* grid */
+    .grid {
+      display: grid;
+      grid-template-columns: 300px auto 300px;
+    }
+    .grid1, .grid3 {
+      /* width: 300px; */
+      height: 100px; 
+      border: 1px solid blue;
+    }
+    .grid2 {
+      /* width: 100%; */
+      height: 100px;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <h3>两边固定宽度, 中间自使用, 已知高度实现3栏布局</h3>
+  </section>
+  <h3>1, 浮动</h3>
+  <div class="box1"></div>
+  <div class="box3"></div>
+  <div class="box2"></div>
+  <h3>2, 弹性盒子</h3>
+  <div class="flex">
+    <div class="flex1"></div>
+    <div class="flex2"></div>
+    <div class="flex3"></div>
+  </div>
+  <h3>3, 定位</h3>
+  <div class="posi">
+    <div class="posi1"></div>
+    <div class="posi2"></div>
+    <div class="posi3"></div>
+  </div>
+  <h3>4, table-cell</h3>
+  <div class="t-cell">
+    <div class="t-cell1"></div>
+    <div class="t-cell2"></div>
+    <div class="t-cell3"></div>
+  </div>
+  <h3>5, grid</h3>
+  <div class="grid">
+    <div class="grid1"></div>
+    <div class="grid2"></div>
+    <div class="grid3"></div>
+  </div>
+</body>
+</html>
