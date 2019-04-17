@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <section>
+    <header>原型链类</header>
+    <img src="proto.png" alt=""></br>
+    <ol>
+      <li>创建对象有几种方法
+        <ol>
+          <li>
+            字面量: 原型链默认指向Object
+            <pre>
+              var o1 = {a: 1}
+              var o2 = new Object({a: 1})
+            </pre>
+          </li>
+          <li>
+            显示的构造函数:
+            <pre>
+              function M(){this.name="o3"}
+              var o3 = new M()
+            </pre>
+          </li>
+          <li>
+            <pre>
+              var p = {a: 'o4'}
+              var o4 = Object.create(p)
+            </pre>
+          </li>
+        </ol>
+      </li>
+      <li>
+        原型, 构造函数, 实例, 原型链
+        <ol>
+          <li>只有函数有prototype</li>
+          <li>只有实例对象才有__proto__(函数也有但是指向的是Function.prototype, 任何函数都是Function的一个实例)</li>
+          <li>构造函数通过prototype和原型对象产生关联</li>
+          <li>实例对象通过__proto__和原型对象产生关联</li>
+
+        </ol>
+      </li>
+      <li>instanceof原理: 比较的是__proto__和构造函数的prototype是否引用的同一个地址</li>
+      <li>new 运算符
+        <ol>
+          <li>一个对象被创建.它继承自foo.prototype</li>
+          <li>foo被执行, 执行时相应的参数会被传入, this会被指定为这个新实例</li>
+          <li>如果foo返回了一个'对象', 那么这个对象会取代整个new出来的结果, 如果构造函数没有返回对象, new的结果为1步骤创建的对象</li>
+        </ol>
+      </li>
+    </ol>
+  </section>
+</body>
+<script>
+  // 字面量: 原型链默认指向Object
+  var o1 = {name: 'o1'}
+  var o2 = new Object({name: 'o2'})
+  // 显示构造函数 
+  function M(name) {
+    this.name = name
+  }
+  var o3 = new M('o3')
+  // Object.create()
+  var p = {name: 'o4'}
+  var o4 = Object.create(p)
+</script>
+</html>
